@@ -1,0 +1,22 @@
+body {
+  height: 100vh;
+  width: 100vw;
+}
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+}
+.item1 {
+  background-color: rgb(199, 185, 64);
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.item2 {
+  background-color: palevioletred;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
