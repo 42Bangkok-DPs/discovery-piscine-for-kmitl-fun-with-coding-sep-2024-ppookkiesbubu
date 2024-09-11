@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #balloon {
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="balloon" onclick="growUp()" onmouseleave="growDown()"></div>
+    <script>
+      let i = 1;
+      const color = ["red", "green", "blue"];
+      function growUp() {
+        let divBalloon = document.getElementById("balloon");
+        let currentWidth = parseInt(divBalloon.getBoundingClientRect().width);
+        let currentHeight = parseInt(divBalloon.getBoundingClientRect().height);
+        if (i >= 2) {
+          i = 0;
+        } else {
+          i++;
+        }
+        divBalloon.style.backgroundColor = color[i];
+        divBalloon.style.width = currentWidth + 10 + "px";
+        divBalloon.style.height = currentHeight + 10 + "px";
+        if (currentWidth > 420) {
+          divBalloon.style.width = 200 + "px";
+          divBalloon.style.height = 200 + "px";
+        }
+      }
+      function growDown() {
+        let divBalloon = document.getElementById("balloon");
+        let currentWidth = parseInt(divBalloon.getBoundingClientRect().width);
+        let currentHeight = parseInt(divBalloon.getBoundingClientRect().height);
+        if (i > 0) {
+          i--;
+        } else if (i === 0) {
+          i = 2;
+        }
+        divBalloon.style.backgroundColor = color[i];
+        if (currentWidth > 200) {
+          divBalloon.style.width = currentWidth - 5 + "px";
+          divBalloon.style.height = currentHeight - 5 + "px";
+        }
+      }
+    </script>
+  </body>
+</html>
