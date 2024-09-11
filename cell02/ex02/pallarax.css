@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .parallax {
+    height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+  .bg1 {
+    background-image: url("https://jolyonsphotography.com/wp-content/uploads/photo-gallery/2020-0522-Black_and_White-13.jpg?bwg=1590147257");
+  }
+  .bg2 {
+    background-image: url("https://jolyonsphotography.com/wp-content/uploads/2020-0522-Black-and-White-0514.jpg");
+  }
+  .centered-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    color: white;
+  }
+  .black-block {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 50px;
+  }
