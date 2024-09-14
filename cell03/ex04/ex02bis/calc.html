@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="text" id="left">
+    <select id="sym">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="right">
+    <input type="button" id="calculate" value="Try me!">
+    <script>
+        function isPositiveInteger(str) {
+            return /^\d+$/.test(str) && parseInt(str) >= 0;
+        }
+
+        function calculate() {
+            var left = $("#left").val();
+            var sym = $("#sym").val();
+            var right = $("#right").val();
+
+            if (!isPositiveInteger(left) || !isPositiveInteger(right)) {
+                alert("Error :(");
+                return;
+            }
+
+            left = parseInt(left);
+            right = parseInt(right);
+
+            if ((sym === "/" || sym === "%") && right === 0) {
+                alert("It's over 9000!");
+                return;
+            }
+
+            var result;
+
+            switch (sym) {
+                case "+":
+                    result = left + right;
+                    break;
+                case "-":
+                    result = left - right;
+                    break;
+                case "*":
+                    result = left * right;
+                    break;
+                case "/":
+                    result = left / right;
+                    break;
+                case "%":
+                    result = left % right;
+                    break;
+            }
+
+            alert("Result: " + result);
+            console.log("Result: " + result);
+        }
+
+        $(document).ready(function () {
+        $("#calculate").click(calculate);
+        });
+        
+        setInterval(function () {
+            alert("Please, use me...");
+        }, 30000);
+
+
+    </script>
+</body>
+
+</html>
