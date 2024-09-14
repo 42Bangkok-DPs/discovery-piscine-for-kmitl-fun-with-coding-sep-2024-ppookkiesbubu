@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #balloon {
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        background-color: red;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="balloon"></div>
+
+    <script>
+      let colorIndex = 0;
+      const colorList = ["red", "green", "blue"];
+
+      function growUp(balloon) {
+        let curWidth = balloon.width()
+        let curHeight = balloon.height()
+        if (colorIndex >= 2) {
+          colorIndex = 0;
+        } else {
+          colorIndex++;
+        }
+        balloon.css({
+          "background-color": colorList[colorIndex],
+          width: curWidth+ 10 + "px",
+          height: curHeight + 10 + "px",
+        });
+        if (curWidth > 410) {
+          balloon.css({
+            width: "200px",
+            height: "200px",
+          });
+        }
+      }
+
+      function growDown(balloon) {
+        let curWidth = balloon.width()
+        let curHeight = balloon.height()
+        
+        if (curWidth > 200) {
+            balloon.css({
+                width: curWidth- 5 + "px",
+                height: curHeight - 5 + "px",
+            });
+            
+            if (colorIndex > 0) {
+                colorIndex--;
+            } else {
+                colorIndex = 2;
+            }
+        }
+
+        console.log(colorIndex)
+        balloon.css("background-color", colorList[colorIndex]);
+    }
+
+      $(document).ready(function () {
+        const balloon = $("#balloon");
+
+        balloon.on("click", function () {
+          growUp(balloon);
+        });
+
+        balloon.on("mouseleave", function () {
+          growDown(balloon);
+        });
+      });
+    </script>
+  </body>
+</html>
